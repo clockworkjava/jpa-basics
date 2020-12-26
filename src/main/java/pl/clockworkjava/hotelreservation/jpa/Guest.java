@@ -17,4 +17,8 @@ public class Guest {
         this.name = name;
         this.age = age;
     }
+
+    public long getId() {
+        return this.id;
+    }
 }

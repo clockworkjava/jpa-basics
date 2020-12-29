@@ -28,4 +28,10 @@ public class GuestRepository {
 
         transaction.commit();
     }
+
+    public Guest findById(long i) {
+        System.out.println(" ------ FIND BY ID ------");
+        em.clear();
+        return em.find(Guest.class, 1);
+    }
 }

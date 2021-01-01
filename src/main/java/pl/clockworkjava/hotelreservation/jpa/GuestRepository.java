@@ -29,9 +29,16 @@ public class GuestRepository {
 
     public void updateAge(Guest guest, int newAge) {
         EntityTransaction transaction = em.getTransaction();
-        System.out.println(" -------- UPDATE --------");
         transaction.begin();
         guest.setAge(newAge);
+        transaction.commit();
+    }
+
+    public void delete(Guest guest) {
+        EntityTransaction transaction = em.getTransaction();
+        System.out.println(" -------- DELETE --------");
+        transaction.begin();
+        em.remove(guest);
         transaction.commit();
     }
 }

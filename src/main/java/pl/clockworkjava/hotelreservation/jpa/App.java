@@ -7,5 +7,6 @@ public class App {
         repo.createNewGuest("Paweł", 34);
         Guest guest = repo.findById(1);
         repo.updateAge(guest, 35);
+        repo.delete(guest);
     }
 }

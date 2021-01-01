@@ -6,6 +6,6 @@ public class App {
         GuestRepository repo = new GuestRepository();
         repo.createNewGuest("Paweł", 34);
         Guest guest = repo.findById(1);
-        System.out.println(guest.getId());
+        repo.updateAge(guest, 35);
     }
 }

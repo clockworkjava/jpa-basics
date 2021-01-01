@@ -27,4 +27,8 @@ public class Guest {
     public long getId() {
         return this.id;
     }
+
+    public void setAge(int newAge) {
+        this.age = newAge;
+    }
 }

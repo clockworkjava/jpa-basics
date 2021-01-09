@@ -1,19 +1,19 @@
 package pl.clockworkjava.hotelreservation.jpa;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
 
 public class GuestRepository {
 
-    private static EntityManagerFactory factory = Persistence.createEntityManagerFactory("thePersistenceUnit");
-    private static EntityManager em  = factory.createEntityManager();
+    EntityManager em;
+
+    public GuestRepository(EntityManager em) {
+        this.em = em;
+    }
 
     public void createNewGuest(String name, int age) {
 
         Guest newOne = new Guest(name, age);
-
         EntityTransaction transaction = em.getTransaction();
 
         transaction.begin();
@@ -23,8 +23,8 @@ public class GuestRepository {
         transaction.commit();
     }
 
-    public Guest findById(long i) {
-        return em.find(Guest.class, i);
+    public Guest findById(long id) {
+        return em.find(Guest.class, id);
     }
 
     public void updateAge(Guest guest, int newAge) {
@@ -36,9 +36,9 @@ public class GuestRepository {
 
     public void delete(Guest guest) {
         EntityTransaction transaction = em.getTransaction();
-        System.out.println(" -------- DELETE --------");
         transaction.begin();
         em.remove(guest);
         transaction.commit();
     }
 }
+

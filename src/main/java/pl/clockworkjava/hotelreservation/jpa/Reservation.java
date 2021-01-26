@@ -1,6 +1,7 @@
 package pl.clockworkjava.hotelreservation.jpa;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Reservation {
@@ -9,10 +10,10 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @OneToOne
-    private Guest guest;
+    @OneToMany
+    private List<Guest> guests;
 
-    public Reservation(Guest guest) {
-        this.guest = guest;
+    public Reservation(List<Guest> guest) {
+        this.guests = guest;
     }
 }

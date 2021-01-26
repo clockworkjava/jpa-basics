@@ -2,6 +2,8 @@ package pl.clockworkjava.hotelreservation.jpa;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import java.util.Arrays;
+import java.util.List;
 
 public class ReservationRepository {
 
@@ -11,7 +13,7 @@ public class ReservationRepository {
         this.em = em;
     }
 
-    public void createReservation(Guest guests) {
+    public void createReservation(List<Guest> guests) {
 
         Reservation r = new Reservation(guests);
 

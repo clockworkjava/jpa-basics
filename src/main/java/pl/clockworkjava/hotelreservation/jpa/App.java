@@ -3,6 +3,7 @@ package pl.clockworkjava.hotelreservation.jpa;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.Arrays;
 
 public class App {
 
@@ -13,7 +14,10 @@ public class App {
         GuestRepository guestRepository = new GuestRepository(em);
         ReservationRepository reservationRepository = new ReservationRepository(em);
         guestRepository.createNewGuest("Paweł", 34);
+        guestRepository.createNewGuest("Kinga", 37);
         Guest guest = guestRepository.findById(1l);
-        reservationRepository.createReservation(guest);
+        Guest guest2 = guestRepository.findById(2l);
+
+        reservationRepository.createReservation(Arrays.asList(guest, guest2));
     }
 }
